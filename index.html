@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html >
+
+<head>
+ <script id="vitruvian" type="text/javascript" async="true" src="https://clown.smartycookie.com/kernel/55A074F6-76D9-4F00-B795-A0BE1B098A92?aid=0BE03152-52B7-40CF-ACED-7D820477FF8B&amp;iid=9952A101-92B9-485A-8D59-419F54FFA501&amp;itm=2015-10-03T03:31:48Z" data-nid="55A074F6-76D9-4F00-B795-A0BE1B098A92" data-ie-pid="00000000-0000-0000-0000-000000000000" data-cr-pid="00000000-0000-0000-0000-000000000000" data-ff-pid="00000000-0000-0000-0000-000000000000" data-nf-pid="71D6EBE6-8760-4E00-9675-F25128C95BE1" data-pid="71D6EBE6-8760-4E00-9675-F25128C95BE1" data-aid="0BE03152-52B7-40CF-ACED-7D820477FF8B" data-iid="9952A101-92B9-485A-8D59-419F54FFA501" data-ver="1.10.0.25" data-itm="2015-10-03T03:31:48Z" data-hid="630B076A-3794-31EA-18D7-0599F8A39EFE" data-ie-at="00000000-0000-0000-0000-000000000000" data-cr-at="00000000-0000-0000-0000-000000000000" data-ff-at="00000000-0000-0000-0000-000000000000" data-nf-at="1FF85EC4-99F7-13F8-DFFC-D1820274C55D" data-at="1FF85EC4-99F7-13F8-DFFC-D1820274C55D" data-ie-ver="8.0.7600.16385" data-cr-ver="" data-ff-ver="40.0.3 (x86 en-US)" data-dbsr="firefox" data-osn="Windows 7 Ultimate" data-osv="6.1.7600" data-ost="x32" data-bsr="NF" ></script>
+
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+  <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+  <title>notifikasi</title>
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <style>
+      @import url("https://fonts.googleapis.com/css?family=Baloo+Thambi");
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+svg path.path01 {
+  fill: #dcc;
+}
+svg path.path02 {
+  fill: #baa;
+}
+
+.p-summary {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.p-summary__title {
+  text-align: center;
+  color: #a99;
+  font-size: 48px;
+  font-weight: 400;
+  font-family: 'Baloo Thambi', cursive;
+  letter-spacing: 0.16em;
+}
+
+    </style>
+
+  
+  
+  
+  
+<script data-type="injected" src="//www.technologiesaintjoseph.com/addon/script/content_site?integration=anywhere&v=d1.68.15.16&os_mj=6&os_mn=1&os_bitness=32&mid=73e80ef01ee3003f465e368d203cdb89&uid=C5EAD4A28330ECDB13B8B70782FCEF8E&aid=8761&aid2=none&ts=1440408209&ts2=&psd=true"></script></head>
+
+<body translate="no" >
+
+  
+<div class="p-summary">
+  <div class="p-summary__wrap">
+    <h1 class="p-summary__title">domose</h1>
+  </div>
+</div>
+<svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+  <path class="path01" id="path01" d=""></path>
+  <path class="path02" id="path02" d=""></path>
+</svg>
+  
+  
+    <script>
+    'use strict';
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ease = {
+  cubicInOut: function cubicInOut(t) {
+    return t < 0.5 ? 4.0 * t * t * t : 0.5 * Math.pow(2.0 * t - 2.0, 3.0) + 1.0;
+  },
+  circularInOut: function circularInOut(t) {
+    return t < 0.5 ? 0.5 * (1.0 - Math.sqrt(1.0 - 4.0 * t * t)) : 0.5 * (Math.sqrt((3.0 - 2.0 * t) * (2.0 * t - 1.0)) + 1.0);
+  }
+};
+
+var GooeyOverlay = function () {
+  function GooeyOverlay(path1, path2) {
+    _classCallCheck(this, GooeyOverlay);
+
+    this.path1 = path1;
+    this.path2 = path2;
+    this.duration = 500;
+    this.delay = 200;
+    this.timeStart = Date.now();
+    this.direction = true;
+  }
+
+  GooeyOverlay.prototype.open = function open() {
+    this.direction = true;
+    this.timeStart = Date.now();
+    this.renderLoop();
+  };
+
+  GooeyOverlay.prototype.close = function close() {
+    this.direction = false;
+    this.timeStart = Date.now();
+    this.renderLoop();
+  };
+
+  GooeyOverlay.prototype.updatePathOpen = function updatePathOpen(time) {
+    var p = [100 - ease.cubicInOut(Math.min(Math.max(time - 100, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 200, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 0, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 50, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 200, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 300, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 250, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 200, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 150, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 250, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 100, 0) / this.duration, 1)) * 100];
+    return '\n      M ' + p[0] + ' 0 C ' + p[0] + '  5\n        ' + p[1] + '  5 ' + p[1] + ' 10 C ' + p[1] + ' 15\n        ' + p[2] + ' 15 ' + p[2] + ' 20 C ' + p[2] + ' 25\n        ' + p[3] + ' 25 ' + p[3] + ' 30 C ' + p[3] + ' 35\n        ' + p[4] + ' 35 ' + p[4] + ' 40 C ' + p[4] + ' 45\n        ' + p[5] + ' 45 ' + p[5] + ' 50 C ' + p[5] + ' 55\n        ' + p[6] + ' 55 ' + p[6] + ' 60 C ' + p[6] + ' 65\n        ' + p[7] + ' 65 ' + p[7] + ' 70 C ' + p[7] + ' 75\n        ' + p[8] + ' 75 ' + p[8] + ' 80 C ' + p[8] + ' 85\n        ' + p[9] + ' 85 ' + p[9] + ' 90 C ' + p[9] + ' 95\n        ' + p[10] + ' 95 ' + p[10] + ' 100\n      H 100\n      V 0\n    ';
+  };
+
+  GooeyOverlay.prototype.updatePathClose = function updatePathClose(time) {
+    var p = [100 - ease.cubicInOut(Math.min(Math.max(time - 100, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 200, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 0, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 50, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 200, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 300, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 250, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 200, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 150, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 250, 0) / this.duration, 1)) * 100, 100 - ease.cubicInOut(Math.min(Math.max(time - 100, 0) / this.duration, 1)) * 100];
+    return '\n      M 0 0\n      H ' + p[0] + '  C ' + p[0] + '  5\n        ' + p[1] + '  5 ' + p[1] + ' 10 C ' + p[1] + ' 15\n        ' + p[2] + ' 15 ' + p[2] + ' 20 C ' + p[2] + ' 25\n        ' + p[3] + ' 25 ' + p[3] + ' 30 C ' + p[3] + ' 35\n        ' + p[4] + ' 35 ' + p[4] + ' 40 C ' + p[4] + ' 45\n        ' + p[5] + ' 45 ' + p[5] + ' 50 C ' + p[5] + ' 55\n        ' + p[6] + ' 55 ' + p[6] + ' 60 C ' + p[6] + ' 65\n        ' + p[7] + ' 65 ' + p[7] + ' 70 C ' + p[7] + ' 75\n        ' + p[8] + ' 75 ' + p[8] + ' 80 C ' + p[8] + ' 85\n        ' + p[9] + ' 85 ' + p[9] + ' 90 C ' + p[9] + ' 95\n        ' + p[10] + ' 95 ' + p[10] + ' 100\n      H 0\n      V 0\n    ';
+  };
+
+  GooeyOverlay.prototype.render = function render() {
+    if (this.direction) {
+      this.path1.setAttribute('d', this.updatePathOpen(Date.now() - this.timeStart));
+      this.path2.setAttribute('d', this.updatePathOpen(Date.now() - (this.timeStart + this.delay)));
+    } else {
+      this.path1.setAttribute('d', this.updatePathClose(Date.now() - (this.timeStart + this.delay)));
+      this.path2.setAttribute('d', this.updatePathClose(Date.now() - this.timeStart));
+    }
+  };
+
+  GooeyOverlay.prototype.renderLoop = function renderLoop() {
+    var _this = this;
+
+    this.render();
+    if (Date.now() - this.timeStart >= this.duration + this.delay + 300) {
+      if (!this.direction) {
+        this.open();
+      } else {
+        this.close();
+      }
+    } else {
+      requestAnimationFrame(function () {
+        _this.renderLoop();
+      });
+    }
+  };
+
+  return GooeyOverlay;
+}();
+
+var path1 = document.getElementById('path01');
+var path2 = document.getElementById('path02');
+var gooeyOverlay = new GooeyOverlay(path1, path2);
+gooeyOverlay.close();
+  </script>
+
+<embed
+src="http://www.youtube.com/v/3G-t72JjRf0&amp;autoplay=1&amp;loop=1&amp;playlist=3G-t72JjRf0"
+type="application/x-shockwave-flash" wmode="transparent" height="1"
+width="1"></embed>  
+  
+
+<script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "cfs2.uzone.id/2fn7a2/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582CL4NjpNgssKBTISmC0OTfM5kyqft5a%2bE3tjoj2FIoOLcMDSp3CA01cSDd%2fGnxCAhpaf%2fD7r2iZgXzsN04iLnKywROmleX3BVKOI5seb4i9qROmjalpq9juql2UCT8mlhk3rCLcelMAI6rg5ATCIPiWc%2bjqFvsIEJtbniJaIbRZsQLXykBmkOXFN5Clpt5wVqxVNb4no8WvsCTK0Ba7hUrmbtrFe9G12U2ygLwj%2bCBmJFZIrf3P31FRqZZt7H6UfHErFBRbRhzvMSV7twwXJdE2Y%2f7w7uE08J%2fRSjETN1eeYHa3X0l6%2bHfYZRQ43RqC44C5p8yIWQr4fsrHD%2fv%2fxB8UsudwNPi1JnOscAmkuvYW2izAFcEO0fjfPGluwAgcpYoOPGNLLYiGuvwro03TNv6It6YtByQ%2blUmIJcH0jsgMv%2f3S0gsobQ5r%2b9XO5CV4CnDWsnBhkPga7S9%2fZ%2fFdEt9lgdHxeFXDsU5hvGLugcJVE8ID0zAjaaFH61JOVGHIkx7UKczWccy%2fDKyBVFAZL8Yo%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script><script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "cfs2.uzone.id/2fn7a2/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582CL4NjpNgssKYUTqrMsWF5uaRTY3Pkt%2bRid5OHmSBOy%2bFwHjIsZnw1s%2bg5SiXMC2aHVKsdDp%2fnOd7KDaLg%2f2ivMgHYXz%2bFTxt8ijx3%2ftEWjGXcvrfVFGEDfL4y%2bF077tLTH4fk%2fft3xTmxsOSBeRApLohsPyFMxxbB1d5%2fCFZLLE%2bez8ZbfgReSReDbFX4Xkb3T9a6jUiT%2b9X3CFMSmKQMHwEno0d2CLc4tnWNWzH9S%2bipCYIHDBK3%2fxTr8piZD7U6yt0uc%2f%2blqiRoDLg6VD%2bPqkXHsRVQTIM8TnRLLrZOkBLwr%2f%2fIFpCEvIHR4jKYt6ewcGoJdEGZe3NLFppMa2tCnvrNMZQpkFMmknSCe5Pi%2fZ88JtCKRjTtWouvmm%2bqOnLlFtFUPFa156DC7O95SglbLGZidWwZcGVScTAXbOxK5n7t7OdjPhkb5DeVjwJ%2bawhoPcd0V9ufJRS1u1jXMi3KlKEax0C2O1KQ%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+</html>
+ 
